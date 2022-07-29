@@ -1,0 +1,36 @@
+<section fxLayout="row wrap" fxLayoutGap="35px grid" class="m-3">
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let add of address">
+        <mat-card class="mat-elevation-z4" class="alert alert-info"> 
+            <mat-card-content>
+               
+                 <h3>LandMark:  {{add.landmark|titlecase}}</h3> 
+               
+               
+                <h3>  StreetName:  {{add.streetname|titlecase}}</h3> 
+               
+              
+                <h3>  City:  {{add.city|titlecase}}</h3> 
+              
+             
+                <h3>  Pincode:  {{add.pincode}}</h3> 
+                
+             
+                <h3> AddressType:  {{add.addresstype|titlecase}}</h3> 
+              
+            </mat-card-content>
+            <mat-card-actions>
+                    <button mat-raised-button class="btn btn-primary" (click)="updateAdd(add)" > Edit Address</button>
+            </mat-card-actions>
+        </mat-card>
+       
+    </div>
+    <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%">
+    <mat-card class="mat-elevation-z4" class="alert alert-secondary back-widget-set text-center" style="height: 95%;display:flex;align-items:center;justify-content: center;">
+   
+        <div>
+            <i class="fa fa-plus fa-4x"></i>
+           <div> <a routerLink="/add-address" class="btn btn-link">Add New Address</a></div>
+        </div>
+    </mat-card>
+</div>
+</section>

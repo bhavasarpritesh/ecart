@@ -1,0 +1,35 @@
+<main class="content-wrapper">
+    <article class="container">
+        <section class="row pad-botm">
+            <div class="col-md-12 text-center">
+                <h1 class="header-line">ADMIN DASHBOARD</h1>
+            </div>
+        </section>
+        <section class="row">
+            <figure class="col-md-4 col-sm-4 col-xs-6">
+                <div class="alert alert-info back-widget-set text-center">
+                    <i class="fa fa-history fa-5x"></i>
+                    <h3>
+                        {{productcount}}
+                    </h3>
+                    <a routerLink="/viewproduct">Total Products</a>
+                </div>
+            </figure>
+            <figure class="col-md-4 col-sm-4 col-xs-6">
+                <div class="alert alert-success back-widget-set text-center">
+                    <i class="fa fa-users fa-5x"></i>
+                    <h3>{{usercount}}</h3>
+                    <a routerLink="/viewcustomers">Total Customers</a>
+                </div>
+            </figure>
+            <figure class="col-md-4 col-sm-4 col-xs-6">
+                <div class="alert alert-warning back-widget-set text-center">
+                    <i class="fa fa-recycle fa-5x"></i>
+                    <h3>{{ordercount}}</h3>
+                    <a routerLink="/vieworders">Total Orders</a>
+
+                </div>
+            </figure>
+        </section>
+    </article>
+</main>

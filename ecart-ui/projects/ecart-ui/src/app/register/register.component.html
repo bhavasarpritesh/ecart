@@ -1,0 +1,62 @@
+<main>
+  <h2 class="rh">Registration Form</h2>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+    <mat-grid-list cols="1" rowHeight="500px">
+      <mat-grid-tile>
+        <article class="example-container">
+          <mat-form-field appearance="fill" class="width-100">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" name="name" placeholder="Enter name" formControlName="name">
+            <mat-error *ngIf="myError('name', 'required')">Name is required</mat-error>
+            <mat-error *ngIf="myError('name', 'maxlength')">Limit exceed</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill" class="width-100 ">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" placeholder="Enter Email" formControlName="email">
+            <mat-error *ngIf="myError('email', 'required')">Email is required</mat-error>
+            <mat-error *ngIf="myError('email', 'email')">Enter Valid Email</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill" class="width-100">
+            <mat-label>Mobile</mat-label>
+            <input matInput placeholder="Ex. 7654436789" name="mobile" formControlName="mobile">
+            <mat-error *ngIf="myError('mobile', 'required')">mobile is required</mat-error>
+            <mat-error *ngIf="myError('mobile', 'pattern')">Enter valid mobile no</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill" class="width-100">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" name="password" formControlName="password">
+            <mat-error *ngIf="myError('password', 'required')">Password is required</mat-error>
+            <mat-error *ngIf="myError('password', 'maxlength')">Password must be 12 character</mat-error>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <br>
+          <mat-form-field appearance="fill" class="width-100">
+            <mat-label> Confirm password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" name="cpassword" formControlName="cpassword"
+              (blur)="confirmpassword()">
+            <mat-error *ngIf="myError('cpassword', 'required')">Confirm Password is required</mat-error>
+            <mat-error *ngIf="myError('cpassword', 'confirmPasswordValidator')">Password is mismatch</mat-error>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <br>
+
+
+          <section class="btndiv">
+            <button type="submit" [disabled]="!myForm.valid" mat-raised-button color="primary"
+              class="bregister">Register</button>
+            <a mat-button routerLink="/login" mat-raised-button color="teal" class="alink">Existing user? Login</a>
+          </section>
+        </article>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+</main>

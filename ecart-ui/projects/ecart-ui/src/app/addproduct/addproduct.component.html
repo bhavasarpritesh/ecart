@@ -1,0 +1,63 @@
+<h2 class="ap">Add Product</h2>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate > 
+    <mat-grid-list cols="1" rowHeight="500px">
+        <mat-grid-tile>
+            <article class="example-container">
+                <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>Product Name</mat-label>
+                    <input matInput type="text" name="productname" placeholder="Enter product name" formControlName="productname">
+                    <mat-error *ngIf="myError('productname', 'required')">Product Name is required</mat-error>
+                    <mat-error *ngIf="myError('productname', 'maxlength')">Limit exceed</mat-error>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>Price</mat-label>
+                    <input matInput type="text" name="price" placeholder="Enter product price" formControlName="price">
+                    <mat-error *ngIf="myError('price', 'required')">Price is required</mat-error>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput type="text" name="description" placeholder="Enter description" formControlName="description"></textarea>
+                    <mat-error *ngIf="myError('description', 'required')">Description is required</mat-error>
+                    <mat-error *ngIf="myError('description', 'maxlength')">Limit exceed</mat-error>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput type="text" name="quantity" placeholder="Enter quantity" formControlName="quantity">
+                    <mat-error *ngIf="myError('quantity', 'required')">Quantity is required</mat-error>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field appearance="fill" class="width-100">
+                    <mat-label>Image</mat-label>
+                        <input matInput readonly name="name" />
+                        <input formControlName="image" type="file"  (change)="selectFile($event)" id="uploadFile"  name="image" multiple="multiple"
+                         />
+
+                  </mat-form-field>
+                  <br>
+                  <section class="select">
+                  <mat-form-field class="width-50">
+                    <mat-label>Status</mat-label>
+                    <mat-select formControlName="status" name="status" >
+                        <mat-option value="1">active</mat-option>
+                        <mat-option value="2">inactive</mat-option>      
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field  class="width-50" >
+                    <mat-label>Category</mat-label>
+                    <mat-select formControlName="category" name="category">
+                         <mat-option *ngFor="let c of cat" [value]="c.id">{{c.category}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                  </section>
+                <br>
+                <section class="select">
+                  <button type="submit" [disabled]="!myForm.valid" mat-raised-button color="primary" class= "width-50">Add Product</button>
+                  <button type="reset"  mat-raised-button color="primary" class= "breset width-50">Reset</button>
+                </section>
+             </article>
+            </mat-grid-tile>
+            </mat-grid-list>
+        </form>

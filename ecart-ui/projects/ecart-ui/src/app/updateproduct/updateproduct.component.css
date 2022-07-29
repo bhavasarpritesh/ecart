@@ -1,0 +1,24 @@
+.main{
+    width: 800px;
+    height: 800px;
+}
+
+.example-radio-button{margin-left: 7px;}
+mat-grid-tile {
+  background:#fafafa;
+}
+.width-50{width: 40%;}
+.ml-1{margin-left: 1%;}
+.ml-2{margin-left: 2%;}
+.width-100{width: 100%;}
+.width-25{width: 25%;}
+.example-container{
+    width: 70%;
+    height: 100%;
+}
+.alink {margin-left: 70px;}
+.bregister{width: 30%}
+.rregister{width: 30%; margin-left: 15%;}
+.ap {text-align: center;}
+.scat{margin-left: 15%;}
+

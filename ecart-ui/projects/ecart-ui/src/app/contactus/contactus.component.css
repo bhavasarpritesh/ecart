@@ -1,0 +1,117 @@
+
+p{
+    font-size: 15px;
+    font-family: "Nunito Sans" , sans-serif ;
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 25px;
+    margin: 0 0 15px 0;
+}
+img{
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    padding-left: 0;
+}
+
+input:focus{
+    outline: none;
+}
+a:hover,
+a:focus{
+    text-decoration: none;
+    outline: none;
+    color: #ffffff;
+}
+.container{background: #2874f0;
+padding-left:5%;
+padding-right: 5%;
+padding-top: 5%;
+padding-bottom: 5%; 
+width: 100%;}
+
+.footer{
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-about{
+    margin-bottom: 30px;
+}
+.footer-about .footer-logo{
+    margin-bottom: 30px;
+}
+.footer-about p{
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+.footer-widget{
+    margin-bottom: 30px;
+}
+.footer-widget h6{
+    color:  #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+.footer-widget ul li{
+    line-height: 36px;
+    list-style: none;
+}
+.footer-widget ul li a{
+    color: #ffffff;
+    font-size: 15px;
+}
+.footer-widget ul li a:hover{
+    color: #e53637;
+}
+.footer-widget .footer-newslatter p{
+    color: #ffffff;
+}
+.footer-widget .footer-newslatter form{
+    position: relative;
+}
+.footer-widget .footer-newslatter form input{
+    width: 100%;
+    font-size: 15px;
+    color: #ffffff;
+    background: transparent;
+    border: none;
+    padding: 15px 0;
+    border-bottom: 2px solid #ffffff;
+}
+.footer-widget .footer-newslatter form input::placeholder{
+    color: #ffffff;
+}
+.footer-widget .footer-newslatter form button{
+    color: #ffffff;
+    font-size: 16px;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    height: 100%;
+    background: transparent;
+    border: none;
+}
+.footer-copyright-text{
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    margin-top: 40px;
+}
+.footer-copyright-text p{
+    color: #ffffff;
+    margin-bottom: 0;
+}
+.footer-copyright-text p i{
+    color: #ffffff;
+}
+.footer-copyright-text p a{
+    color: #ffffff;
+}

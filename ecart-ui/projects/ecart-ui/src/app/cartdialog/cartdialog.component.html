@@ -1,0 +1,54 @@
+<main class="cart-dialog">
+    <mat-dialog-content>
+        <h1>Cart Summary</h1>
+        <ng-container *ngIf="!(cart.quantityOfItems>0)">
+            <h2 style="color: darkcyan;"> Your Cart is Empty</h2>
+        </ng-container>
+        <ng-container *ngIf="cart.quantityOfItems>0" class="cart-items">
+            <ng-container *ngFor="let item of cart.orderProducts">
+                <article fxLayout="row" fxLayoutAlign="space-between center" class="item">
+                    <section class="large-text">
+                        {{ item.product?.name|titlecase }}
+                    </section>
+                    <section>
+                    <figure class="large-text">
+                        <img src="{{item.product?.image}}" style="height: 100px; width: 100px;" />
+                    </figure>
+                   </section>
+                    <section class="large-text">
+                        {{ item.product?.price | currency : 'INR' }}
+                    </section>
+                    <section fxLayout="row" fxLayoutAlign="space-around center">
+                        <button class="quantity-button" (click)="decrease(item)">
+                            <mat-icon>remove_circle</mat-icon>
+                        </button>
+                        <input matInput type="number" placeholder="0" class="input-quantity" value="{{item.quantity}}"
+                            min="0">
+                        <button class="quantity-button" (click)="increase(item)">
+                            <mat-icon>add_circle</mat-icon>
+                        </button>
+                    </section>
+                    {{item.product?.price*item.quantity}}
+                </article>
+
+                <mat-divider></mat-divider>
+            </ng-container>
+        </ng-container>
+    </mat-dialog-content>
+    <section fxLayout="row" fxLayoutAlign="space-between center" class="summary">
+        <div class="totalPrice-text">TOTAL: </div>
+        <div class="totalPrice-text">{{cart.totalPrice | currency : 'INR'}}</div>
+    </section>
+    <mat-dialog-actions>
+        <section fxLayout="row" fxLayoutAlign="end" class="cart-buttons-container">
+            <button mat-raised-button class="cart-button" (click)="closeDialog()">
+                <div class="large-text">Continue shopping</div>
+            </button>
+            <button mat-raised-button class="cart-button" style="background-color: #448AFF; color:darkslategray"
+                (click)="openCheckout()" [disabled]="!(cart.quantityOfItems>0)">Proceed To Checkout</button>
+            <button mat-raised-button class="button" (click)="clearCart()" [disabled]="!(cart.quantityOfItems>0)">
+                <mat-icon>remove_shopping_cart</mat-icon>Clear cart
+            </button>
+        </section>
+    </mat-dialog-actions>
+</main>

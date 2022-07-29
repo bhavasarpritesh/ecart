@@ -1,0 +1,10 @@
+<main class="div">
+  <h1 mat-dialog-title>Alert</h1>
+  <section mat-dialog-content>
+    <h3>{{data.msg}}</h3>
+    <a *ngIf="data.islogin" href="/#/login">Login </a>
+  </section>
+  <section mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </section>
+</main>

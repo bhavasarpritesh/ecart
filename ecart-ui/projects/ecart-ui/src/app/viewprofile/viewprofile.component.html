@@ -1,0 +1,44 @@
+<main>
+    <h2 class="rh">Update Profile</h2>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+      <mat-grid-list cols="1" rowHeight="500px">
+        <mat-grid-tile>
+          <article class="example-container">
+            <mat-form-field appearance="fill" class="width-100 ">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" name="email" placeholder="Enter Email" formControlName="email" [readonly]="true">
+              <mat-error *ngIf="myError('email', 'required')">Email is required</mat-error>
+              <mat-error *ngIf="myError('email', 'email')">Enter Valid Email</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill" class="width-100">
+              <mat-label>Name</mat-label>
+              <input matInput type="text" name="name" placeholder="Enter name" formControlName="name" [readonly]="isEnable">
+              <mat-error *ngIf="myError('name', 'required')">Name is required</mat-error>
+              <mat-error *ngIf="myError('name', 'maxlength')">Limit exceed</mat-error>
+            </mat-form-field>
+            <br>
+            
+            <mat-form-field appearance="fill" class="width-100">
+              <mat-label>Mobile</mat-label>
+              <input matInput placeholder="Ex. 7654436789" name="mobile" formControlName="mobile" [readonly]="isEnable">
+              <mat-error *ngIf="myError('mobile', 'required')">mobile is required</mat-error>
+              <mat-error *ngIf="myError('mobile', 'pattern')">Enter valid mobile no</mat-error>
+            </mat-form-field>
+            <br>
+            
+            <br>
+         
+  
+            <section class="btndiv">
+              <button type="button"  mat-raised-button style="background-color: #2874f0;color:white;"
+                class="bregister" *ngIf="isEnable" (click)="edit()">Edit</button>
+                <button type="submit" [disabled]="!myForm.valid" mat-raised-button style="background-color: #2874f0;color:white;"
+                class="bregister" *ngIf="!isEnable">Update</button>
+              <a mat-button routerLink="/updatepassword"  color="teal" class="alink">Want to Update Password?</a>
+            </section>
+          </article>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </main>

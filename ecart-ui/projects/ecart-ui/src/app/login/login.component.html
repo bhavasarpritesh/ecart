@@ -1,0 +1,37 @@
+<main>
+    <h2 class="lf">Login Form</h2>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <mat-grid-list cols="1" rowHeight="500px">
+
+            <mat-grid-tile>
+                <article class="example-container">
+                    <mat-form-field appearance="fill" class="width-100 ">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" name="email" placeholder="Enter Email" formControlName="email">
+                        <mat-error *ngIf="myError('email', 'required')">Email is required</mat-error>
+                        <mat-error *ngIf="myError('email', 'email')">Enter Valid Email</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill" class="width-100">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" name="password" formControlName="password">
+                        <mat-error *ngIf="myError('password', 'required')">Password is required</mat-error>
+                        <mat-error *ngIf="myError('password', 'maxlength')">Password is mismatch</mat-error>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <br>
+                    <section class="btndiv">
+                        <button type="submit" [disabled]="!myForm.valid" mat-raised-button color="primary"
+                            class="bregister">Login</button>
+                        <a mat-button routerLink="/recoverpassword" class="alink">Forgot Password!</a>
+                        <a mat-button routerLink="/register" class="alink">New to site?</a>
+                    </section>
+                </article>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</main>

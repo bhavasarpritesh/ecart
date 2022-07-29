@@ -1,0 +1,18 @@
+<main class="main">
+    <h1 mat-dialog-title>Alert</h1>
+    <section mat-dialog-content>
+        <ng-container *ngIf="show1">
+            <h3>Please Enter The Otp end on {{email}} </h3>
+            <input type="text" name="otp" [(ngModel)]="otp">
+            <h3 *ngIf="!isvalid">Please Enter Valid Otp</h3>
+        </ng-container>
+        <ng-container *ngIf="show">
+            <h3>Congratulations ! Your Account Has Created Sucssefully</h3>
+        </ng-container>
+    </section>
+    <section mat-dialog-actions>
+        <button *ngIf="show1" mat-button (click)="verifyOtp()">Verify</button>
+        <a *ngIf="show" (click)="close()" routerLink="/login">Login</a>
+        <button mat-button mat-dialog-close>Close</button>
+    </section>
+</main>

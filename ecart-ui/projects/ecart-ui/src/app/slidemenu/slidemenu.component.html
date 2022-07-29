@@ -1,0 +1,118 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button
+      mat-icon-button
+      *ngIf="sidenav.mode === 'over'"
+      (click)="sidenav.toggle()"
+    >
+      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+    </button>
+    <mat-icon>shopping_cart</mat-icon>
+    Ecart  
+   
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" *ngIf="!isadmin" routerLink="/">
+        <mat-icon>store</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-button class="menu-button" *ngIf="!isadmin" routerLink="/products">
+        <mat-icon>style</mat-icon>
+        <span>Products</span>
+      </button>
+      <ng-container *ngIf="!islogin">
+      <button mat-button class="menu-button" routerLink="/login">
+        <mat-icon>person</mat-icon>
+        <span>Customer login</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/register">
+        <mat-icon>person_add</mat-icon>
+        <span>Register</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/recoverpassword">
+        <mat-icon>no_encryption</mat-icon>
+        <span>Forgot Password</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/login">
+        <mat-icon>person</mat-icon>
+        <span>Admin login</span>
+      </button>
+    </ng-container>
+      <ng-container *ngIf="isuser && islogin">
+      <button mat-button class="menu-button" routerLink="/manage-address">
+        <mat-icon>location_on</mat-icon>
+        <span>Manage Address</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/orderhistory">
+        <mat-icon>replay</mat-icon>
+        <span>Order History</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/viewprofile">
+        <mat-icon>person</mat-icon>
+        <span> {{user.name|titlecase}}</span>
+      </button>
+
+      <button mat-button class="menu-button"  (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+     
+    </ng-container>
+      <ng-container *ngIf="isadmin && islogin">
+        <button mat-button class="menu-button" routerLink="/admindashboard">
+          <mat-icon>dashboard</mat-icon>
+          <span>Admin Dashboard</span>
+        </button>
+      
+      <button mat-button class="menu-button" routerLink="/viewproduct">
+        <mat-icon>style</mat-icon>
+        <span>Manage Product</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/viewcustomers">
+        <mat-icon>people</mat-icon>
+        <span>Manage Customers</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/vieworders">
+        <mat-icon>replay</mat-icon>
+        <span>Manage Orders</span>
+      </button>
+      
+      <button mat-button class="menu-button" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </ng-container>
+      <mat-divider></mat-divider>
+      <div class="bottom">
+       
+      <button mat-button class="menu-button" routerLink="/about">
+        <mat-icon>info</mat-icon>
+        <span>About</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/contactsus">
+        <mat-icon>email</mat-icon>
+        <span>Contact us</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/support">
+        <mat-icon>help_center</mat-icon>
+        <span>Help Center</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/support">
+        <mat-icon>privacy_tip</mat-icon>
+        <span>Privacy Policy</span>
+      </button>
+      
+     
+     </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <main class="content mat-elevation-z8">
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

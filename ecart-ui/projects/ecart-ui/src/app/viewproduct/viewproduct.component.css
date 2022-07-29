@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+    
+}
+th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+}
+.vo {text-align: center;}
+.pag{
+    position: absolute;
+    bottom: 10%;
+    right: 2%;
+    width: 30%;
+}
+.example-tooltip-red {
+    background: #b71c1c;
+  }

@@ -1,0 +1,71 @@
+mat-toolbar {
+    justify-content: space-between;
+  
+}
+
+.content {
+    padding: 10px;
+}
+
+
+
+.content>mat-card {
+    width: 200px;
+    margin-bottom: 16px;
+}
+
+.btn {
+    width: 50%
+}
+
+.btndiv {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+p {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    color: red;
+    margin: 3px;
+}
+
+.toolbar {
+    margin-bottom: 20px;
+}
+
+.floatingButton {
+
+    position: fixed;
+
+    width: 60px;
+
+    height: 60px;
+
+    bottom: 50px;
+
+    right: 50px;
+
+    background-color: #2874f0;
+
+    color: #FFF;
+
+    border-radius: 60px;
+
+    border: none;
+
+    box-shadow: 3px 3px 4px #999;
+
+    outline: none;
+
+    transition: backgroud 0.25s;
+
+}
+ngb-rating {
+    font-size: 20px;
+    color:#2874f0;
+    
+  }
